@@ -3,12 +3,17 @@
 # run javac with the full list of arguments,
 # capturing STDERR (2) to STDOUT (&1)
 # and store the STDOUT (i.e., the compiler output) in the variable RESULT
-echo "hi"
+echo "data logged"
+
+if [[ $# -lt 1 ]]
+then
+python
+else 	
 
 RESULT=$(python $@ 2>&1)
 PYTHON_CALL="$*"
 
-# read in java file contents
+# read in python file contents
 PYTHON_PROGRAM="`cat $1`"
 shift
 while [[ $# -ge 1 ]]
@@ -21,6 +26,7 @@ do
   shift
 done
 
+fi
 
 
 # post the data to the server
