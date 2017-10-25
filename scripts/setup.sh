@@ -23,20 +23,13 @@ do
 done
 
 # Download the appropriate compiler for the user's shell
-if [[ "$SHELL" = '/bin/bash' ]]
-then
   # curl -k https://raw.githubusercontent.com/dweintrop/javaseer/master/scripts/javaseer.sh -o ~/javaseer.sh
   echo "here"
-  echo 'alias python="~/pythonAlias/scripts/pythonseer.sh"' >> ~/.bashrc
+  echo 'alias python="~/pythonAlias/scripts/pythonseer.sh"' >> ~/.bash_profile
   # echo "export STUDENT_ID=\"$ID\"" >> ~/.bash_profile
   # echo "export STUDENT_NAME=\"$NAME\"" >> ~/.bash_profile
   # echo "export JAVASEER_URL=\"http://javaseer.herokuapp.com\"" >> ~/.bash_profile
   echo "alias has been setup. please close then reopen the terminal."
-else
-  echo "this user's shell isn't BASH"
-  echo "no setup was performed"
-  exit
-fi
 
 # Make the research compiler executable
-chmod 700 ~/javaseer/scripts/javaseer.sh
+chmod 777  ~/pythonAlias/scripts/pythonseer.sh
