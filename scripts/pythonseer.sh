@@ -3,7 +3,6 @@
 # run javac with the full list of arguments,
 # capturing STDERR (2) to STDOUT (&1)
 # and store the STDOUT (i.e., the compiler output) in the variable RESULT
-echo "data logged"
 
 if [[ $# -lt 1 ]]
 then
@@ -30,18 +29,12 @@ fi
 
 
 # post the data to the server
-# note STUDENT_NAME and STUDENT_ID are environment vars set by setup.sh
-curl --request POST "$PYTHONSEER_URL/polls/" \ 
---data-urlencode "student_id=$STUDENT_ID" \
---data-urlencode "pyCall=$PYTHON_CALL" \
---data-urlencode "pyProgram=$PYTHON_PROGRAM" \
---data-urlencode "pyOutput=$RESULT"
-# curl --request POST "$JAVASEER_URL/javaseer/" \
-#		--data-urlencode "student_id=$STUDENT_ID" \
-#		--data-urlencode "student_name=$STUDENT_NAME" \
-#		--data-urlencode "javacCall=$JAVA_CALL" \
-#		--data-urlencode "javaProgram=$JAVA_PROGRAM" \
-#		--data-urlencode "javaCompilerOutput=$RESULT"
+# note PYTHONSEER_URL and STUDENT_ID are environment vars set by setup.sh
+curl --request POST "$PYTHONSEER_URL/polls/" \
+          --data-urlencode "student_id=$STUDENT_ID" \
+          --data-urlencode "pyCall=$PYTHON_CALL" \
+          --data-urlencode "pyProgram=$PYTHON_PROGRAM" \
+          --data-urlencode "pyOutput=$RESULT"
 
 # display the compiler output to the user
 echo "$RESULT"
