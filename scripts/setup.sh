@@ -21,4 +21,4 @@ shift
   echo "alias has been setup. please close then reopen the terminal."
 
 # Make the research compiler executable
-chmod 777  ~/pythonAlias/scripts/pythonseer.sh
+chmod 777  ~/pythonseer.sh
