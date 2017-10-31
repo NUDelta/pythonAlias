@@ -3,8 +3,8 @@
 if [[ $# -lt 1 ]]
 then
   echo ""
-  echo "     USAGE: ./setup.sh [StudentID name]"
-  echo "        ex: ./setup.sh 12345678 David Weintrop"
+  echo "     USAGE: ./setup.sh [StudentID]"
+  echo "        ex: ./setup.sh 12345678
   echo ""
   exit
 fi
