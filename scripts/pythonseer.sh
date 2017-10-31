@@ -31,6 +31,11 @@ fi
 
 # post the data to the server
 # note STUDENT_NAME and STUDENT_ID are environment vars set by setup.sh
+curl --request POST "$PYTHONSEER_URL/polls/" \ 
+--data-urlencode "student_id=$STUDENT_ID" \
+--data-urlencode "pyCall=$PYTHON_CALL" \
+--data-urlencode "pyProgram=$PYTHON_PROGRAM" \
+--data-urlencode "pyOutput=$RESULT"
 # curl --request POST "$JAVASEER_URL/javaseer/" \
 #		--data-urlencode "student_id=$STUDENT_ID" \
 #		--data-urlencode "student_name=$STUDENT_NAME" \
