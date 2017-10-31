@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $# -lt 2 ]]
+if [[ $# -lt 1 ]]
 then
   echo ""
   echo "     USAGE: ./setup.sh [StudentID name]"
@@ -13,22 +13,12 @@ fi
 ID=$1
 shift
 
-NAME=$1
-shift
-#grab student name
-while [[ $# -ge 1 ]]
-do
-  NAME="$NAME $1"
-  shift
-done
-
 # Download the appropriate compiler for the user's shell
-  # curl -k https://raw.githubusercontent.com/dweintrop/javaseer/master/scripts/javaseer.sh -o ~/javaseer.sh
+  # curl -k https://raw.githubusercontent.com/NUDelta/pythonAlias/master/scripts/pythonseer.sh -o ~/pythonseer.sh
   echo "here"
-  echo 'alias python="~/pythonAlias/scripts/pythonseer.sh"' >> ~/.bash_profile
-  # echo "export STUDENT_ID=\"$ID\"" >> ~/.bash_profile
-  # echo "export STUDENT_NAME=\"$NAME\"" >> ~/.bash_profile
-  # echo "export JAVASEER_URL=\"http://javaseer.herokuapp.com\"" >> ~/.bash_profile
+  echo 'alias python="~/pythonseer.sh"' >> ~/.bash_profile
+  echo "export STUDENT_ID=\"$ID\"" >> ~/.bash_profile
+  echo "export PYTHONSEER_URL=\"http://mighty-lowlands-48531.herokuapp.com\"" >> ~/.bash_profile
   echo "alias has been setup. please close then reopen the terminal."
 
 # Make the research compiler executable
