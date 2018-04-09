@@ -34,7 +34,7 @@ curl --request POST "$PYTHONSEER_URL/polls/" \
           --data-urlencode "student_id=$STUDENT_ID" \
           --data-urlencode "pyCall=$PYTHON_CALL" \
           --data-urlencode "pyProgram=$PYTHON_PROGRAM" \
-          --data-urlencode "pyOutput=$RESULT"
+          --data-urlencode "pyOutput=$RESULT" --silent
 
 # display the compiler output to the user
 echo "$RESULT"
