@@ -25,3 +25,4 @@ shift
 
 #make the research compiler executable
 chmod 777 ~/pythonseer.sh
+chmod 777 ~/pythonseer3.sh
