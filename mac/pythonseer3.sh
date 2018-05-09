@@ -5,7 +5,30 @@
 # and store the STDOUT (i.e., the compiler output) in the variable RESULT
 if [[ $# -lt 1 ]]
 then
-python3
+ 	/usr/bin/script log.txt /bin/bash -c python3
+
+	OUT="`cat log.txt`"
+	PYTHON_CALL="$*"
+
+	shift
+	while [[ $# -ge 1 ]]
+	do
+	  OUT="$OUT
+	  
+	  ---EOF---
+
+	  `cat log.txt`"
+	  shift
+	done
+
+	PYTHON_PROGRAM="pythonInterpreter"
+	PYTHON_CALL="pythonInterpreter"
+	curl --request POST "$PYTHONSEER_URL/polls/" \
+	         --data-urlencode "student_id=$STUDENT_ID" \
+	         --data-urlencode "pyCall=$PYTHON_CALL" \
+	         --data-urlencode "pyProgram=$PYTHON_PROGRAM" \
+	         --data-urlencode "pyOutput=$OUT" --silent
+	rm log.txt
 else 
 	python3 $@  > >(tee -a stdout.txt) 2> >(tee -a stderr.txt >&2)
 
